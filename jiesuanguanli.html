@@ -1,0 +1,608 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>地推界面左菜单</title>
+<link rel="stylesheet"  type="text/css" href="css/admin.css"> 
+<script src="js/jquery-1.7.2.js" type="text/javascript"></script>
+<script>
+	$(function(){
+		//tab选项卡切换
+		$(".jsgl_tab").on("click","li",function(){
+			$(this).addClass("js_cur").siblings().removeClass("js_cur");
+			$(".js_main").find(".js_con").hide().eq($(this).index()).show();
+		});
+		
+		//点击查看添加新选项卡
+		$(".look_more").click(function(){
+			$(".jsgl_tab li").removeClass("js_cur");
+			$(".js_main").find(".js_con").hide();
+			$(".js_main").append(`<div class='js_con' style='display:block;'><div class='bg_white'>
+            	<div class='js_tit clearfix'><span>确认时间：2017-11-07 18:22:26</span>佣金合计</div>
+                <div class='yjhj'>
+                	<table class='yjhj_table' border='1'>
+                    	<tr>
+                        	<th>类别</th>
+                            <th>北京市当地销售</th>
+                            <th>外地城市销售</th>
+                            <th>外地合伙人在北京市销售</th>
+                            <th>北京市自然增长销售</th>
+                        </tr>
+                        <tr>
+                        	<th>销售金额</th>
+                            <td>6,656,000.00</td>
+                            <td>6,656,000.00</td>
+                            <td>6,656,000.00</td>
+                            <td>6,656,000.00</td>
+                        </tr>
+                        <tr>
+                        	<th>提成比例</th>
+                            <td>1.5%</td>
+                            <td>1.5%</td>
+                            <td>1.5%</td>
+                            <td>1.5%</td>
+                        </tr>
+                        <tr>
+                        	<th>分成比例</th>
+                            <td>1.5%</td>
+                            <td>1.5%</td>
+                            <td>1.5%</td>
+                            <td>1.5%</td>
+                        </tr>
+                        <tr>
+                        	<th>分成佣金</th>
+                            <td>99,789.00</td>
+                            <td>99,789.00</td>
+                            <td>99,789.00</td>
+                            <td>99,789.00</td>
+                        </tr>
+                        <tr>
+                        	<th>合计</th>
+                            <td colspan='4'>99,789.00</td>
+                        </tr>
+                        <tr>
+                        	<th>注销佣金合计</th>
+                            <td>727.0</td>
+                            <th>代理商佣金合计</th>
+                            <td colspan='2'>80,000.00</td>
+                        </tr>
+                        <tr>
+                        	<th>实际获得佣金</th>
+                            <td colspan='4'>99,789.00</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class='bg_white table_list'>
+            	<table>
+                	<thead>
+                    	<tr>
+                        	<td>白条用户姓名</td>
+                            <td>白条用户手机号</td>
+                            <td>合伙人</td>
+                            <td>加盟商</td>
+                            <td>推广员姓名</td>
+                            <td>推广员手机号</td>
+                            <td>白条额度</td>
+                            <td>白条激活时间</td>
+                            <td>位置</td>
+                            <td>白条状态</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr>
+                        	<td>*博</td>
+                            <td>181****6309</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>陈波</td>
+                            <td>18145236666</td>
+                            <td>12000.00</td>
+                            <td>2017/11/01</td>
+                            <td>泉州市</td>
+                            <td>已激活</td>
+                        </tr>
+                        <tr>
+                        	<td>*博</td>
+                            <td>181****6309</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>陈波</td>
+                            <td>18145236666</td>
+                            <td>12000.00</td>
+                            <td>2017/11/01</td>
+                            <td>泉州市</td>
+                            <td>已激活</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <!--      这里放分页代码      -->
+                
+            </div></div>`);
+			$(".jsgl_tab").append("<li class='js_cur'><img src='images/close_tab.png' class='close_tab'>2017-11</li>");
+		});
+		$(document).on("click",".close_tab",function(){
+			var $index = $(this).parent().index();
+			$(".jsgl_tab li").eq($index-1).addClass("js_cur");
+			$(".js_main").find(".js_con").eq($index-1).show();
+			$(this).parent().remove();
+			$(".js_main").find(".js_con").eq($index).remove();
+		});
+		
+	});
+</script>
+
+
+</head>
+
+<body class="body_gray">
+
+<ul class="bread_nav">
+    <li>当前位置：</li>
+    <li><a href="javascript:;">佣金管理</a></li>
+    <li><img src="images/next.png" alt="" /></li>
+    <li><a href="javascript:;">结算管理</a></li>
+</ul>
+<div class="ml25">
+    <div class="jsgl">
+        <ul class="jsgl_tab">
+            <li class="js_cur">未出单</li>
+            <li>待确认</li>
+            <li>待结算</li>
+            <li>已结算</li>
+        </ul>
+    </div>
+    
+    <div class="js_main">
+        <!--     未出单  start       -->
+        <div class="js_con" style="display:block;">
+            <div class="bg_white">
+            	<div class="js_tit clearfix"><span>确认时间：2017-11-07 18:22:26</span>佣金合计</div>
+                <div class="yjhj">
+                	<table class="yjhj_table" border="1">
+                    	<tr>
+                        	<th>类别</th>
+                            <th>北京市当地销售</th>
+                            <th>外地城市销售</th>
+                            <th>外地合伙人在北京市销售</th>
+                            <th>北京市自然增长销售</th>
+                        </tr>
+                        <tr>
+                        	<th>销售金额</th>
+                            <td>6,656,000.00</td>
+                            <td>6,656,000.00</td>
+                            <td>6,656,000.00</td>
+                            <td>6,656,000.00</td>
+                        </tr>
+                        <tr>
+                        	<th>提成比例</th>
+                            <td>1.5%</td>
+                            <td>1.5%</td>
+                            <td>1.5%</td>
+                            <td>1.5%</td>
+                        </tr>
+                        <tr>
+                        	<th>分成比例</th>
+                            <td>1.5%</td>
+                            <td>1.5%</td>
+                            <td>1.5%</td>
+                            <td>1.5%</td>
+                        </tr>
+                        <tr>
+                        	<th>分成佣金</th>
+                            <td>99,789.00</td>
+                            <td>99,789.00</td>
+                            <td>99,789.00</td>
+                            <td>99,789.00</td>
+                        </tr>
+                        <tr>
+                        	<th>合计</th>
+                            <td colspan="4">99,789.00</td>
+                        </tr>
+                        <tr>
+                        	<th>注销佣金合计</th>
+                            <td>727.0</td>
+                            <th>代理商佣金合计</th>
+                            <td colspan="2">80,000.00</td>
+                        </tr>
+                        <tr>
+                        	<th>实际获得佣金</th>
+                            <td colspan="4">99,789.00</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="bg_white table_list">
+            	<table>
+                	<thead>
+                    	<tr>
+                        	<td>白条用户姓名</td>
+                            <td>白条用户手机号</td>
+                            <td>合伙人</td>
+                            <td>加盟商</td>
+                            <td>推广员姓名</td>
+                            <td>推广员手机号</td>
+                            <td>白条额度</td>
+                            <td>白条激活时间</td>
+                            <td>位置</td>
+                            <td>白条状态</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr>
+                        	<td>*博</td>
+                            <td>181****6309</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>陈波</td>
+                            <td>18145236666</td>
+                            <td>12000.00</td>
+                            <td>2017/11/01</td>
+                            <td>泉州市</td>
+                            <td>已激活</td>
+                        </tr>
+                        <tr>
+                        	<td>*博</td>
+                            <td>181****6309</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>陈波</td>
+                            <td>18145236666</td>
+                            <td>12000.00</td>
+                            <td>2017/11/01</td>
+                            <td>泉州市</td>
+                            <td>已激活</td>
+                        </tr>
+                        <tr>
+                        	<td>*博</td>
+                            <td>181****6309</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>陈波</td>
+                            <td>18145236666</td>
+                            <td>12000.00</td>
+                            <td>2017/11/01</td>
+                            <td>泉州市</td>
+                            <td>已激活</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <!--      这里放分页代码      -->
+                
+            </div>
+        </div>
+        <!--     未出单  end       -->
+        
+        <!--     待确认  start       -->
+        <div class="js_con">
+            <div class="bg_white">
+            	<div class="js_tit clearfix">佣金合计</div>
+                <div class="yjhj">
+                	<table class="yjhj_table" border="1">
+                    	<tr>
+                        	<th>类别</th>
+                            <th>北京市当地销售</th>
+                            <th>外地城市销售</th>
+                            <th>外地合伙人在北京市销售</th>
+                            <th>北京市自然增长销售</th>
+                        </tr>
+                        <tr>
+                        	<th>销售金额</th>
+                            <td>6,656,000.00</td>
+                            <td>6,656,000.00</td>
+                            <td>6,656,000.00</td>
+                            <td>6,656,000.00</td>
+                        </tr>
+                        <tr>
+                        	<th>提成比例</th>
+                            <td>1.5%</td>
+                            <td>1.5%</td>
+                            <td>1.5%</td>
+                            <td>1.5%</td>
+                        </tr>
+                        <tr>
+                        	<th>分成比例</th>
+                            <td>1.5%</td>
+                            <td>1.5%</td>
+                            <td>1.5%</td>
+                            <td>1.5%</td>
+                        </tr>
+                        <tr>
+                        	<th>分成佣金</th>
+                            <td>99,789.00</td>
+                            <td>99,789.00</td>
+                            <td>99,789.00</td>
+                            <td>99,789.00</td>
+                        </tr>
+                        <tr>
+                        	<th>合计</th>
+                            <td colspan="4">99,789.00</td>
+                        </tr>
+                        <tr>
+                        	<th>注销佣金合计</th>
+                            <td>727.0</td>
+                            <th>代理商佣金合计</th>
+                            <td colspan="2">80,000.00</td>
+                        </tr>
+                        <tr>
+                        	<th>实际获得佣金</th>
+                            <td colspan="4"><a href="JavaScript:;" class="btn_qryj">确认佣金</a>99,789.00</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="bg_white table_list">
+            	<table>
+                	<thead>
+                    	<tr>
+                        	<td>白条用户姓名</td>
+                            <td>白条用户手机号</td>
+                            <td>合伙人</td>
+                            <td>加盟商</td>
+                            <td>推广员姓名</td>
+                            <td>推广员手机号</td>
+                            <td>白条额度</td>
+                            <td>白条激活时间</td>
+                            <td>位置</td>
+                            <td>白条状态</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr>
+                        	<td>*博</td>
+                            <td>181****6309</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>陈波</td>
+                            <td>18145236666</td>
+                            <td>12000.00</td>
+                            <td>2017/11/01</td>
+                            <td>泉州市</td>
+                            <td>已激活</td>
+                        </tr>
+                        <tr>
+                        	<td>*博</td>
+                            <td>181****6309</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>陈波</td>
+                            <td>18145236666</td>
+                            <td>12000.00</td>
+                            <td>2017/11/01</td>
+                            <td>泉州市</td>
+                            <td>已激活</td>
+                        </tr>
+                        <tr>
+                        	<td>*博</td>
+                            <td>181****6309</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>陈波</td>
+                            <td>18145236666</td>
+                            <td>12000.00</td>
+                            <td>2017/11/01</td>
+                            <td>泉州市</td>
+                            <td>已激活</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <!--      这里放分页代码      -->
+            </div>
+        </div>
+        <!--     待确认  end       -->
+        
+        <!--     待结算  start       -->
+        <div class="js_con">
+            <div class="bg_white">
+            	<div class="js_tit clearfix">佣金合计</div>
+                <div class="yjhj">
+                	<ul class="dt_uc">
+                        <li>
+                            <p class="pl">合伙人</p>
+                            <p class="pr">
+                                <input type="text">
+                            </p>
+                        </li>
+                        <li>
+                            <p class="pl">加盟商</p>
+                            <p class="pr">
+                                <input type="text">
+                            </p>
+                        </li>
+                        <li>
+                            <p class="pl">年度</p>
+                            <p class="pr">
+                                <span class="spar">
+                                  <select>
+                                      <option>默认全部</option>
+                                      <option>2017</option>
+                                      <option>2016</option>
+                                      <option>2015</option>
+                                  </select>
+                                </span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="pl">月份</p>
+                            <p class="pr">
+                                <span class="spar">
+                                  <select>
+                                      <option>默认全部</option>
+                                      <option>11月</option>
+                                      <option>10月</option>
+                                      <option>9月</option>
+                                  </select>
+                                </span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="pl">
+                                <a class="ass" href="javascript:;">搜索</a>
+                            </p>
+                        </li>
+                	</ul>
+                    <p class="p_djs">&nbsp;&nbsp;&nbsp;&nbsp; 合伙人待结算总额：<span>8,653,265.00</span>   &nbsp;&nbsp;&nbsp;&nbsp;  加盟商待结算总额：<span>98,653,265.00</span>   &nbsp;&nbsp;&nbsp;&nbsp;  合计：<span>8,653,265.00</span></p>
+                </div>
+            </div>
+            <div class="bg_white table_list">
+            	<table>
+                	<thead>
+                    	<tr>
+                        	<td>期数</td>
+                            <td>合伙人</td>
+                            <td>加盟商</td>
+                            <td>推广金额</td>
+                            <td>注销金额</td>
+                            <td>下属加盟商佣金合计</td>
+                            <td>应付金额</td>
+                            <td>操作</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr>
+                        	<td>201701</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>12000.00</td>
+                            <td>12000.00</td>
+                            <td>12000.00</td>
+                            <td>12000.00</td>
+                            <td><a href="JavaScript:;" class="look_more">查看</a>&nbsp;&nbsp;&nbsp;<a href="JavaScript:;">标记打款</a></td>
+                        </tr>
+                        <tr>
+                        	<td>201701</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>12000.00</td>
+                            <td>12000.00</td>
+                            <td>12000.00</td>
+                            <td>12000.00</td>
+                            <td><a href="JavaScript:;" class="look_more">查看</a>&nbsp;&nbsp;&nbsp;<a href="JavaScript:;">标记打款</a></td>
+                        </tr>
+                        <tr>
+                        	<td>201701</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>12000.00</td>
+                            <td>12000.00</td>
+                            <td>12000.00</td>
+                            <td>12000.00</td>
+                            <td><a href="JavaScript:;" class="look_more">查看</a>&nbsp;&nbsp;&nbsp;<a href="JavaScript:;">标记打款</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <!--      这里放分页代码      -->
+                
+                
+            </div>
+        </div>      
+        <!--     待结算  end       -->
+        
+        <!--     已结算  start       -->
+        <div class="js_con">
+            <div class="bg_white">
+            	<div class="js_tit clearfix">佣金合计</div>
+                <div class="yjhj">
+                	<ul class="dt_uc">
+                        <li>
+                            <p class="pl">所属合伙人</p>
+                            <p class="pr">
+                                <input type="text">
+                            </p>
+                        </li>
+                        <li>
+                            <p class="pl">年度</p>
+                            <p class="pr">
+                                <span class="spar">
+                                  <select>
+                                      <option>默认全部</option>
+                                      <option>2017</option>
+                                      <option>2016</option>
+                                      <option>2015</option>
+                                  </select>
+                                </span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="pl">月份</p>
+                            <p class="pr">
+                                <span class="spar">
+                                  <select>
+                                      <option>默认全部</option>
+                                      <option>11月</option>
+                                      <option>10月</option>
+                                      <option>9月</option>
+                                  </select>
+                                </span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="pl">
+                                <a class="ass" href="javascript:;">搜索</a>
+                            </p>
+                        </li>
+                	</ul>
+                    <p class="p_djs">&nbsp;&nbsp;&nbsp;&nbsp; 合伙人待结算总额：<span>8,653,265.00</span>   &nbsp;&nbsp;&nbsp;&nbsp;  加盟商待结算总额：<span>98,653,265.00</span>   &nbsp;&nbsp;&nbsp;&nbsp;  合计：<span>8,653,265.00</span></p>
+                </div>
+            </div>
+            <div class="bg_white table_list">
+            	<table>
+                	<thead>
+                    	<tr>
+                        	<td>期数</td>
+                            <td>合伙人</td>
+                            <td>加盟商</td>
+                            <td>佣金金额</td>
+                            <td>银行卡号</td>
+                            <td>充值时间</td>
+                            <td>操作</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr>
+                        	<td>201701</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>12000.00</td>
+                            <td>3456 2345 3466 3476 345</td>
+                            <td>2017/11/07 18:05:78</td>
+                            <td><a href="JavaScript:;" class="look_more" >查看</a></td>
+                        </tr>
+                        <tr>
+                        	<td>201701</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>12000.00</td>
+                            <td>3456 2345 3466 3476 345</td>
+                            <td>2017/11/07 18:05:78</td>
+                            <td><a href="JavaScript:;" class="look_more">查看</a></td>
+                        </tr>
+                        <tr>
+                        	<td>201701</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>泉州网联科技有限公司</td>
+                            <td>12000.00</td>
+                            <td>3456 2345 3466 3476 345</td>
+                            <td>2017/11/07 18:05:78</td>
+                            <td><a href="JavaScript:;" class="look_more">查看</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <!--      这里放分页代码      -->
+                
+                
+            </div>
+        </div>          
+        <!--     已结算  end       -->
+    </div>
+</div>
+
+
+
+</body>
+</html>
